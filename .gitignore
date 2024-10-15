@@ -1,0 +1,57 @@
+# Flutter specific files
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# iOS specific
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.generated/
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/Flutter/App.framework
+ios/Flutter/engine/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/Flutter.podspec
+
+# Android specific
+.android/
+app/*.iml
+gradle/
+local.properties
+/.gradle
+/captures/
+/outputs/
+
+# Web related
+web/.dart_tool/
+web/build/
+
+# Miscellaneous
+*.lock
+*.log
+.idea/
+.vscode/
+*.iml
+
+# Exclude compiled binaries
+*.so
+*.dylib
+*.dll
+
+# Byte-compiled / optimized / intermediate files
+*.class
+*.dex
+*.jar
+*.apk
+*.keystore
+
+# Generated files
+*.generated.dart
+
+# Mac specific
+.DS_Store

@@ -1,14 +1,15 @@
-// lib/models/user.dart
 class User {
   final String username;
   final String password;
+  final String role;
 
-  User({required this.username, required this.password});
+  User({required this.username, required this.password, required this.role});
 
   Map<String, dynamic> toMap() {
     return {
       'username': username,
       'password': password,
+      'role': role,
     };
   }
 
@@ -16,6 +17,7 @@ class User {
     return User(
       username: map['username'],
       password: map['password'],
+      role: map['role'],
     );
   }
 }

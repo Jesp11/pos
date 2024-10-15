@@ -28,7 +28,7 @@ class _LoginFormState extends State<LoginForm> {
               controller: usernameController, // Usar el controlador
               decoration: InputDecoration(
                 labelText: 'Username',
-                prefixIcon: const Icon(Icons.person, color: Colors.deepPurple),
+                prefixIcon: const Icon(Icons.person_2_outlined, color: Colors.deepPurple),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
                   borderSide: const BorderSide(color: Colors.deepPurple),
@@ -80,25 +80,30 @@ class _LoginFormState extends State<LoginForm> {
             ElevatedButton(
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
-                  
                   String username = usernameController.text;
                   String password = passwordController.text;
 
-                  bool success = await hiveService.loginUser(username, password);
-                  if (success) {
-                    Navigator.pushReplacementNamed(context, '/dashboard');
+                  var loginResult = await hiveService.loginUser(username, password);
+                  if (loginResult['success']) {
+                    String role = loginResult['role'];
+
+                    // Redirigir basado en el rol
+                    if (role == 'Admin') {
+                      Navigator.pushReplacementNamed(context, '/register');
+                    } else {
+                      Navigator.pushReplacementNamed(context, '/sales'); // Cambia '/ventas' a la ruta correcta
+                    }
                   } else {
-                    
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                        title: Text('Error al Iniciar Sesión'),
-                        content: Text('Usuario o Contraseña incorrectos'),
+                        title: const Text('Error de Inicio de Sesión'),
+                        content: const Text('Usuario o contraseña incorrectos.'),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(context),
                             child: Text('Ok'),
-                          )
+                          ),
                         ],
                       ),
                     );

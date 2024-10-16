@@ -30,7 +30,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/category',
       routes: {
         '/': (context) => const LoginScreen(),
         '/dashboard': (context) => DashboardScreen(),

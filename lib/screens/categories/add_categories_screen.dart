@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/components/forms/categories/add_categories_form.dart';
 
+
 class AddCategoriesScreen extends StatelessWidget {
   const AddCategoriesScreen({super.key});
 

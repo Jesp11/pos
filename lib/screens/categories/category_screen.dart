@@ -20,7 +20,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   }
 
   Future<void> _loadCategories() async {
-    categories = await categoryService.getCategories(); // Asegúrate de que getCategories es async
+    categories = await categoryService.getCategories(); 
     setState(() {});
   }
 
@@ -32,7 +32,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
 
   void _deleteCategory(Category category) {
-    // Lógica para eliminar la categoría
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -40,14 +39,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
         content: const Text('¿Estás seguro de que deseas eliminar esta categoría?'),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context), // Cierra el diálogo
+            onPressed: () => Navigator.pop(context), 
             child: const Text('Cancelar'),
           ),
           TextButton(
             onPressed: () {
-              categoryService.deleteCategory(category); // Llama al servicio para eliminar
-              _loadCategories(); // Recarga la lista
-              Navigator.pop(context); // Cierra el diálogo
+              categoryService.deleteCategory(category);
+              _loadCategories(); 
+              Navigator.pop(context); 
             },
             child: const Text('Eliminar'),
           ),
@@ -93,8 +92,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   return CategoryCard(
                     title: category.name,
                     description: category.description,
-                    onEdit: () => _editCategory(category), // Llama a la función de editar
-                    onDelete: () => _deleteCategory(category), // Llama a la función de eliminar
+                    onEdit: () => _editCategory(category), 
+                    onDelete: () => _deleteCategory(category), 
                   );
                 },
               ),

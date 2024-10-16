@@ -10,10 +10,12 @@ class EditCategoryScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Editar Categoría', style: GoogleFonts.montserrat()),
+        backgroundColor: Colors.deepPurple,
+        foregroundColor: Colors.white,
+        title: Text('Update Category', style: GoogleFonts.montserrat()),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 50, bottom: 16),
         child: EditCategoriesForm(category: category), 
       ),
     );

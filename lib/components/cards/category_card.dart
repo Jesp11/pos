@@ -22,12 +22,12 @@ class CategoryCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        elevation: 5,
+        elevation: 3,
         child: ListTile(
           leading: Icon(Icons.category, color: Colors.deepPurple),
           title: Text(
             title,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           subtitle: Text(description),
           trailing: Row(
@@ -35,11 +35,11 @@ class CategoryCard extends StatelessWidget {
             children: [
               IconButton(
                 icon: const Icon(Icons.edit, color: Colors.blue),
-                onPressed: onEdit, // Llama a la función onEdit cuando se presiona
+                onPressed: onEdit, 
               ),
               IconButton(
                 icon: const Icon(Icons.delete, color: Colors.red),
-                onPressed: onDelete, // Llama a la función onDelete cuando se presiona
+                onPressed: onDelete, 
               ),
             ],
           ),

@@ -74,7 +74,7 @@ class _CategoriesForm extends State<CategoriesForm> {
                             TextButton(
                               onPressed: () {
                                 Navigator.pop(context);
-                                Navigator.pop(context); // Regresar a la pantalla anterior
+                                Navigator.pop(context); 
                               },
                               child: const Text('Ok'),
                             ),

@@ -32,9 +32,8 @@ class _EditCategoriesFormState extends State<EditCategoriesForm> {
 
     bool success = await categoryService.updateCategory(widget.category, updatedCategory);
     if (success) {
-      Navigator.pop(context); // Regresa a la pantalla anterior
+      Navigator.pop(context); 
     } else {
-      // Maneja el error si la actualización falla
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -80,14 +79,14 @@ class _EditCategoriesFormState extends State<EditCategoriesForm> {
         ElevatedButton(
           onPressed: _saveCategory,
           child: const Text(
-            'Guardar',
-            style: TextStyle(color: Colors.white), // Texto en blanco
+            'Save',
+            style: TextStyle(color: Colors.white), 
           ),
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Aumentar el ancho
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 45), 
             backgroundColor: Colors.deepPurple,
           ),
         ),

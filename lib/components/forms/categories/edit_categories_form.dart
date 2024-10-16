@@ -56,19 +56,19 @@ class _EditCategoriesFormState extends State<EditCategoriesForm> {
       children: [
         TextField(
           controller: nameController,
-          decoration: InputDecoration(
-            labelText: 'Nombre',
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(color: Colors.deepPurple),
-            ),
-          ),
+           decoration: InputDecoration(
+                labelText: 'Name',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: const BorderSide(color: Colors.deepPurple),
+                ),
+              ),
         ),
         const SizedBox(height: 16),
         TextField(
           controller: descriptionController,
           decoration: InputDecoration(
-            labelText: 'Descripción',
+            labelText: 'Description',
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
               borderSide: const BorderSide(color: Colors.deepPurple),

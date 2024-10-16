@@ -77,7 +77,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 0.0),
         child: categories.isEmpty
             ? Center(
                 child: Text(

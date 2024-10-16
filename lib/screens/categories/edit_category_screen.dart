@@ -12,11 +12,25 @@ class EditCategoryScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
-        title: Text('Update Category', style: GoogleFonts.montserrat()),
+        title: Text('Edit Category', style: GoogleFonts.montserrat()),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 50, bottom: 16),
-        child: EditCategoriesForm(category: category), 
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 40),
+            Text(
+              'Edit Category',
+              style: GoogleFonts.montserrat(fontSize: 35, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 40),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: EditCategoriesForm(category: category),
+            ),
+          ],
+        ),
       ),
     );
   }

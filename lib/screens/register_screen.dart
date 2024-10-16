@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pos/components/register/register_form.dart';
+import 'package:pos/components/forms/user_auth/register_form.dart';
 
 class RegisterScreen extends StatelessWidget{
   const RegisterScreen({super.key});

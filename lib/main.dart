@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pos/models/user.dart';
+import 'package:pos/screens/categories/edit_category_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/sales_screen.dart';
 import 'screens/register_screen.dart';
-
+import 'screens/inventory_screen.dart';
+import 'screens/categories/category_screen.dart';
+import 'screens/categories/add_categories_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   var userBox = await Hive.openBox('userBox');
-  //await userBox.clear();
-  if(userBox.isEmpty){
+  var categoryBox = await Hive.openBox('categoryBox');
+  
+  if (userBox.isEmpty) {
     User defaultUser = User(username: 'admin', password: 'admin123', role: 'Admin');
     await userBox.put(defaultUser.username, defaultUser.toMap());
   }
-  runApp(MainApp());
+  
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -30,7 +35,11 @@ class MainApp extends StatelessWidget {
         '/': (context) => const LoginScreen(),
         '/dashboard': (context) => DashboardScreen(),
         '/sales': (context) => SalesScreen(),
-        '/register': (context) => RegisterScreen(),
+        '/register': (context) => const RegisterScreen(),
+        '/inventory': (context) => const InventoryScreen(),
+        '/category': (context) => CategoryScreen(),
+        '/category/add': (context) => const AddCategoriesScreen(),
+        '/category/edit': (context) => EditCategoryScreen(),
       },
     );
   }

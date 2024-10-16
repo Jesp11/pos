@@ -25,7 +25,7 @@ class _LoginFormState extends State<LoginForm> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextFormField(
-              controller: usernameController, // Usar el controlador
+              controller: usernameController, 
               decoration: InputDecoration(
                 labelText: 'Username',
                 prefixIcon: const Icon(Icons.person_2_outlined, color: Colors.deepPurple),
@@ -87,11 +87,10 @@ class _LoginFormState extends State<LoginForm> {
                   if (loginResult['success']) {
                     String role = loginResult['role'];
 
-                    // Redirigir basado en el rol
                     if (role == 'Admin') {
                       Navigator.pushReplacementNamed(context, '/register');
                     } else {
-                      Navigator.pushReplacementNamed(context, '/sales'); // Cambia '/ventas' a la ruta correcta
+                      Navigator.pushReplacementNamed(context, '/sales'); 
                     }
                   } else {
                     showDialog(

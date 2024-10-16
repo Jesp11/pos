@@ -8,13 +8,11 @@ class HiveServices {
     var box = Hive.box(userBoxName);
 
     if (box.containsKey(username)) {
-      print('El usuario ya existe');
       return false; 
     }
 
     User newUser = User(username: username, password: password, role: role);
     await box.put(username, newUser.toMap());
-    print('Usuario registrado exitosamente');
     return true; 
   }
 
@@ -29,11 +27,9 @@ class HiveServices {
       print("Inicio de sesión exitoso");
       return {'success': true, 'role': user.role}; 
     } else {
-      print('Contraseña Incorrecta');
       return {'success': false, 'role': null};
     }
   } else {
-    print('Usuario no encontrado');
     return {'success': false, 'role': null};
   }
 }

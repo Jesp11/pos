@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/services/hive_services.dart';
-import 'package:pos/models/user.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});

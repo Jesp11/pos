@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../components/login/login_form.dart';
+import '../components/forms/user_auth/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

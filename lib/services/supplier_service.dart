@@ -68,4 +68,18 @@ class SupplierService {
     
     return false; 
   }
+
+  Supplier? getSupplierByName(String companyName) {
+    try {
+      return supplierBox.values
+          .map((e) => Supplier.fromMap(Map<String, dynamic>.from(e)))
+          .cast<Supplier?>()
+          .firstWhere(
+            (supplier) => supplier?.company.toLowerCase() == companyName.toLowerCase(),
+            orElse: () => null, // Retorna null si no encuentra el proveedor
+          );
+    } catch (e) {
+      return null;
+    }
+  }
 }

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:pos/components/cards/dashboard_card.dart';
+import 'package:pos/screens/products/product_screen.dart';
 import 'package:pos/screens/suppliers/supplier_screen.dart';
-import 'categories/category_screen.dart';
+import '../categories/category_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'login_screen.dart'; 
+import '../user/login_screen.dart'; 
 
 class DashboardScreen extends StatelessWidget {
   
   final List<Map<String, dynamic>> cards = [
-    {'title': 'Reports', 'icon': FontAwesomeIcons.fileLines, 'number': 1},
-    {'title': 'Sales Screen', 'icon': FontAwesomeIcons.cartShopping, 'number': 2},
-    {'title': 'Products', 'icon': FontAwesomeIcons.boxOpen, 'number': 3},
-    {'title': 'Categories', 'icon': FontAwesomeIcons.tags, 'number': 4, 'screen': CategoryScreen()},
-    {'title': 'Store', 'icon': FontAwesomeIcons.store, 'number': 5},
+    //{'title': 'Reports', 'icon': FontAwesomeIcons.fileLines, 'number': 1},
+    {'title': 'Sales Screen', 'icon': FontAwesomeIcons.cartShopping, 'number': 1},
+    {'title': 'Products', 'icon': FontAwesomeIcons.boxOpen, 'number': 2, 'screen': ProductScreen()},
+    {'title': 'Categories', 'icon': FontAwesomeIcons.tags, 'number': 3, 'screen': CategoryScreen()},
+    {'title': 'Store', 'icon': FontAwesomeIcons.store, 'number': 4},
+    {'title': 'Log Out', 'icon': FontAwesomeIcons.rightFromBracket, 'number': 5},
     {'title': 'Suppliers', 'icon': FontAwesomeIcons.truck, 'number': 6, 'screen': SupplierScreen()},
-    {'title': 'Log Out', 'icon': FontAwesomeIcons.rightFromBracket, 'number': 7},
-    {'title': 'Users', 'icon': FontAwesomeIcons.users, 'number': 8},
+    //{'title': 'Users', 'icon': FontAwesomeIcons.users, 'number': 8},
   ];
 
   @override

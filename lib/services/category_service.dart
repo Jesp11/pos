@@ -67,4 +67,14 @@ class CategoryService {
     
     return false; 
   }
+  Future<List<String>> getCategoryNames() async {
+    try {
+      return categoryBox.values
+          .map((e) => Category.fromMap(Map<String, dynamic>.from(e)).name)
+          .toList();
+    } catch (e) {
+      return [];
+    }
+  }
+  
 }

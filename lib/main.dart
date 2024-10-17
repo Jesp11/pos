@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pos/models/user.dart';
 import 'package:pos/screens/categories/edit_category_screen.dart';
+import 'package:pos/screens/suppliers/add_supplier_screen.dart';
+import 'package:pos/screens/suppliers/edit_supplier_screen.dart';
+import 'package:pos/screens/suppliers/supplier_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/sales_screen.dart';
@@ -15,6 +18,7 @@ void main() async {
   await Hive.initFlutter();
   var userBox = await Hive.openBox('userBox');
   var categoryBox = await Hive.openBox('categoryBox');
+  var supplierBox = await Hive.openBox('supplyBox');
   
   if (userBox.isEmpty) {
     User defaultUser = User(username: 'admin', password: 'admin123', role: 'Admin');
@@ -30,7 +34,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/dashboard',
       routes: {
         '/': (context) => const LoginScreen(),
         '/dashboard': (context) => DashboardScreen(),
@@ -40,6 +44,10 @@ class MainApp extends StatelessWidget {
         '/category': (context) => CategoryScreen(),
         '/category/add': (context) => const AddCategoriesScreen(),
         '/category/edit': (context) => EditCategoryScreen(),
+        '/supplier': (context) => SupplierScreen(),
+        '/supplier/add': (context) => const AddSupplierScreen(),
+        '/supplier/edit': (context) =>  EditSupplierScreen(),
+
       },
     );
   }

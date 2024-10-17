@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pos/components/cards/dashboard_card.dart';
+import 'package:pos/screens/suppliers/supplier_screen.dart';
 import 'categories/category_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'login_screen.dart'; 
@@ -12,7 +13,7 @@ class DashboardScreen extends StatelessWidget {
     {'title': 'Products', 'icon': FontAwesomeIcons.boxOpen, 'number': 3},
     {'title': 'Categories', 'icon': FontAwesomeIcons.tags, 'number': 4, 'screen': CategoryScreen()},
     {'title': 'Store', 'icon': FontAwesomeIcons.store, 'number': 5},
-    {'title': 'Suppliers', 'icon': FontAwesomeIcons.truck, 'number': 6},
+    {'title': 'Suppliers', 'icon': FontAwesomeIcons.truck, 'number': 6, 'screen': SupplierScreen()},
     {'title': 'Log Out', 'icon': FontAwesomeIcons.rightFromBracket, 'number': 7},
     {'title': 'Users', 'icon': FontAwesomeIcons.users, 'number': 8},
   ];

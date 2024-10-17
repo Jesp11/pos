@@ -24,7 +24,6 @@ class HiveServices {
     User user = User.fromMap(Map<String, dynamic>.from(userMap));
 
     if (user.password == password) {
-      print("Inicio de sesión exitoso");
       return {'success': true, 'role': user.role}; 
     } else {
       return {'success': false, 'role': null};

@@ -9,10 +9,7 @@ class CategoryService {
 
   Future<bool> registerCategory(String name, String description) async {
     try {
-      // Limpia los espacios en blanco del nombre
       name = name.trim();
-
-      // Verifica si la categoría ya existe
       bool categoryExists = categoryBox.values.any((element) {
         final existingCategory = Category.fromMap(Map<String, dynamic>.from(element));
         return existingCategory.name.toLowerCase() == name.toLowerCase(); 
@@ -26,7 +23,6 @@ class CategoryService {
       await categoryBox.add(category.toMap());
       return true;
     } catch (e) {
-      // Aquí puedes registrar el error para depuración
       return false;
     }
   }

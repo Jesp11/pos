@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pos/components/cards/dashboard_card.dart';
 import 'categories/category_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'login_screen.dart'; // Asegúrate de importar la pantalla de inicio de sesión
+import 'login_screen.dart'; 
 
 class DashboardScreen extends StatelessWidget {
   
@@ -38,10 +38,8 @@ class DashboardScreen extends StatelessWidget {
               icon: card['icon'], 
               onTap: () {
                 if (card['number'] == 7) {
-                  // Manejar la acción de cerrar sesión
                   _logout(context);
                 } else {
-                  // Navegar a la pantalla especificada
                   Navigator.push(
                     context,
                     MaterialPageRoute(

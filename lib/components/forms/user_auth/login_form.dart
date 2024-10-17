@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/services/hive_services.dart';
+import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -95,16 +96,17 @@ class _LoginFormState extends State<LoginForm> {
                   } else {
                     showDialog(
                       context: context,
-                      builder: (context) => AlertDialog(
-                        title: const Text('Error de Inicio de Sesión'),
-                        content: const Text('Usuario o contraseña incorrectos.'),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text('Ok'),
-                          ),
-                        ],
-                      ),
+                      builder: (BuildContext context) {
+                        return dialogAlert(
+                          context: context, 
+                          title: 'Login Error', 
+                          content: 'Incorrect username or password', 
+                          confirmButtonText: 'Ok', 
+                          onConfirm: () { 
+                             Navigator.pop(context);
+                           }
+                          );
+                      },
                     );
                   }
                 }

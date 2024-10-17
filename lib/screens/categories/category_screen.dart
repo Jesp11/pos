@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/components/cards/category_card.dart';
 import 'package:pos/services/category_service.dart';
 import 'package:pos/models/category.dart';
+import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class CategoryScreen extends StatefulWidget {
   @override
@@ -34,24 +35,20 @@ class _CategoryScreenState extends State<CategoryScreen> {
   void _deleteCategory(Category category) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Confirmar eliminación'),
-        content: const Text('¿Estás seguro de que deseas eliminar esta categoría?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context), 
-            child: const Text('Cancelar'),
-          ),
-          TextButton(
-            onPressed: () {
-              categoryService.deleteCategory(category);
+      builder: (BuildContext context) {
+        return dialogAlert(
+          context: context, 
+          title: 'Deleted category?', 
+          content: 'Are you sure you want to delete this category?', 
+          confirmButtonText: 'Delete', 
+          onConfirm: () { 
+            categoryService.deleteCategory(category);
               _loadCategories(); 
-              Navigator.pop(context); 
-            },
-            child: const Text('Eliminar'),
-          ),
-        ],
-      ),
+              Navigator.pop(context);
+          },
+          onCancel: () => Navigator.pop(context)
+        );
+      },
     );
   }
 

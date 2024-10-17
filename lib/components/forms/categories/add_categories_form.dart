@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/services/category_service.dart';
+import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class CategoriesForm extends StatefulWidget {
   @override
@@ -67,34 +68,32 @@ class _CategoriesForm extends State<CategoriesForm> {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Success'),
-                          content: const Text('Category created successfully.'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                                Navigator.pop(context); 
-                              },
-                              child: const Text('Ok'),
-                            ),
-                          ],
-                        );
+                        return dialogAlert(
+                          context: context, 
+                          title: 'Success', 
+                          content: 'The category has been added successfully', 
+                          confirmButtonText: 'Ok', 
+                          onConfirm: () { 
+                             Navigator.pop(context);
+                             Navigator.pop(context);
+                           }
+                          );
                       },
                     );
                   } else {
                     showDialog(
                       context: context,
-                      builder: (context) => AlertDialog(
-                        title: const Text('Error'),
-                        content: const Text('Failed to create category.'),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: const Text('Ok'),
-                          ),
-                        ],
-                      ),
+                      builder: (BuildContext context) {
+                        return dialogAlert(
+                          context: context, 
+                          title: 'Error', 
+                          content: 'Failed to create category', 
+                          confirmButtonText: 'Ok', 
+                          onConfirm: () { 
+                             Navigator.pop(context);
+                           }
+                          );
+                      },
                     );
                   }
                 }

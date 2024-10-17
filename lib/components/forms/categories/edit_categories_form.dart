@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/models/category.dart';
 import 'package:pos/services/category_service.dart';
+import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class EditCategoriesForm extends StatefulWidget {
   final Category category;

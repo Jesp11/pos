@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/services/hive_services.dart';
+import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -154,34 +155,33 @@ class _RegisterFormState extends State<RegisterForm> {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Éxito'),
-                          content: const Text('El usuario se ha creado correctamente'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context); // Cerrar el diálogo
-                              },
-                              child: const Text('Ok'),
-                            ),
-                          ],
-                        );
+                        return dialogAlert(
+                          context: context, 
+                          title: 'Success', 
+                          content: 'The user has successfully registered', 
+                          confirmButtonText: 'Ok', 
+                          onConfirm: () { 
+                             Navigator.pop(context);
+                             Navigator.pop(context);
+                           }
+                          );
                       },
                     );
                   }
                   else {
                     showDialog(
                       context: context,
-                      builder: (context) => AlertDialog(
-                        title: const Text('Error al Registrar'),
-                        content: const Text('El registro falló, intente nuevamente.'),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text('Ok'),
-                          ),
-                        ],
-                      ),
+                      builder: (BuildContext context) {
+                        return dialogAlert(
+                          context: context, 
+                          title: 'Error', 
+                          content: 'failed to register a user', 
+                          confirmButtonText: 'Ok', 
+                          onConfirm: () { 
+                             Navigator.pop(context);
+                           }
+                          );
+                      },
                     );
                   }
                 }

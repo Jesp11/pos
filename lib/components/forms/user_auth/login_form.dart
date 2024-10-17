@@ -89,7 +89,7 @@ class _LoginFormState extends State<LoginForm> {
                     String role = loginResult['role'];
 
                     if (role == 'Admin') {
-                      Navigator.pushReplacementNamed(context, '/register');
+                      Navigator.pushReplacementNamed(context, '/dashboard');
                     } else {
                       Navigator.pushReplacementNamed(context, '/sales'); 
                     }

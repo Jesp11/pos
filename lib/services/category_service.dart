@@ -9,6 +9,10 @@ class CategoryService {
 
   Future<bool> registerCategory(String name, String description) async {
     try {
+      // Limpia los espacios en blanco del nombre
+      name = name.trim();
+
+      // Verifica si la categoría ya existe
       bool categoryExists = categoryBox.values.any((element) {
         final existingCategory = Category.fromMap(Map<String, dynamic>.from(element));
         return existingCategory.name.toLowerCase() == name.toLowerCase(); 
@@ -22,6 +26,7 @@ class CategoryService {
       await categoryBox.add(category.toMap());
       return true;
     } catch (e) {
+      // Aquí puedes registrar el error para depuración
       return false;
     }
   }
@@ -43,24 +48,27 @@ class CategoryService {
   }
 
   Future<bool> updateCategory(Category oldCategory, Category newCategory) async {
+    final newName = newCategory.name.trim();
 
     bool categoryExists = categoryBox.values.any((element) {
       final existingCategory = Category.fromMap(Map<String, dynamic>.from(element));
-      return existingCategory.name.toLowerCase() == newCategory.name.toLowerCase() && 
-            existingCategory.name != oldCategory.name; // Asegúrate de que no sea la misma categoría
+      return existingCategory.name.toLowerCase() == newName.toLowerCase() && 
+            existingCategory.name.toLowerCase() != oldCategory.name.toLowerCase();
     });
 
     if (categoryExists) {
       return false; 
     }
+
     final index = categoryBox.values.toList().indexWhere(
-      (element) => Category.fromMap(Map<String, dynamic>.from(element)).name == oldCategory.name,
+      (element) => Category.fromMap(Map<String, dynamic>.from(element)).name.toLowerCase() == oldCategory.name.toLowerCase(),
     );
+
     if (index != -1) {
       await categoryBox.putAt(index, newCategory.toMap());
       return true; 
     }
+    
     return false; 
   }
-
 }

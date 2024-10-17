@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pos/models/user.dart';
 import 'package:pos/screens/categories/edit_category_screen.dart';
+import 'package:pos/screens/inventory/inventory_screen.dart';
 import 'package:pos/screens/products/add_product_screen.dart';
 import 'package:pos/screens/products/product_screen.dart';
 import 'package:pos/screens/suppliers/add_supplier_screen.dart';
@@ -11,7 +12,6 @@ import 'screens/user/login_screen.dart';
 import 'screens/dashboard/dashboard_screen.dart';
 import 'screens/sales_screen.dart';
 import 'screens/user/register_screen.dart';
-import 'screens/inventory_screen.dart';
 import 'screens/categories/category_screen.dart';
 import 'screens/categories/add_categories_screen.dart';
 
@@ -37,13 +37,12 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/dashboard',
       routes: {
         '/': (context) => const LoginScreen(),
         '/dashboard': (context) => DashboardScreen(),
         '/sales': (context) => SalesScreen(),
         '/register': (context) => const RegisterScreen(),
-        '/inventory': (context) => const InventoryScreen(),
         '/product': (context) => ProductScreen(),
         '/product/add': (context) => const AddProductsScreen(),
         '/product/edit': (context) => const AddProductsScreen(),
@@ -53,6 +52,7 @@ class MainApp extends StatelessWidget {
         '/supplier': (context) => SupplierScreen(),
         '/supplier/add': (context) => const AddSupplierScreen(),
         '/supplier/edit': (context) =>  EditSupplierScreen(),
+        '/inventory': (context) => InventoryScreen(),
 
       },
     );

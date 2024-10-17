@@ -5,6 +5,7 @@ import 'package:pos/screens/categories/edit_category_screen.dart';
 import 'package:pos/screens/inventory/inventory_screen.dart';
 import 'package:pos/screens/products/add_product_screen.dart';
 import 'package:pos/screens/products/product_screen.dart';
+import 'package:pos/screens/report/ticket_screen.dart';
 import 'package:pos/screens/suppliers/add_supplier_screen.dart';
 import 'package:pos/screens/suppliers/edit_supplier_screen.dart';
 import 'package:pos/screens/suppliers/supplier_screen.dart';
@@ -21,7 +22,7 @@ void main() async {
   var userBox = await Hive.openBox('userBox');
   var categoryBox = await Hive.openBox('categoryBox');
   var supplierBox = await Hive.openBox('supplyBox');
-  var productBox = await Hive.openBox('productBox');
+  var ticketBox = await Hive.openBox('ticketBox');
   
   
     User defaultUser = User(username: 'ponce', password: 'admin123', role: 'Admin');
@@ -53,6 +54,7 @@ class MainApp extends StatelessWidget {
         '/supplier/add': (context) => const AddSupplierScreen(),
         '/supplier/edit': (context) =>  EditSupplierScreen(),
         '/inventory': (context) => InventoryScreen(),
+        '/ticket': (context) => TicketScreen(),
 
       },
     );

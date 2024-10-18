@@ -3,6 +3,7 @@ import 'package:pos/components/cards/dashboard_card.dart';
 import 'package:pos/screens/inventory/inventory_screen.dart';
 import 'package:pos/screens/products/product_screen.dart';
 import 'package:pos/screens/report/ticket_screen.dart';
+import 'package:pos/screens/sales/sales_screen.dart';
 import 'package:pos/screens/suppliers/supplier_screen.dart';
 import '../categories/category_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,7 +13,7 @@ class DashboardScreen extends StatelessWidget {
   
   final List<Map<String, dynamic>> cards = [
     {'title': 'Tickets', 'icon': FontAwesomeIcons.fileLines, 'number': 1, 'screen': TicketScreen()},
-    {'title': 'Sales Screen', 'icon': FontAwesomeIcons.cartShopping, 'number': 2},
+    {'title': 'Sales Screen', 'icon': FontAwesomeIcons.cartShopping, 'number': 2, 'screen': SalesScreen()},
     {'title': 'Products', 'icon': FontAwesomeIcons.boxOpen, 'number': 3, 'screen': ProductScreen()},
     {'title': 'Categories', 'icon': FontAwesomeIcons.tags, 'number': 4, 'screen': CategoryScreen()},
     {'title': 'Store', 'icon': FontAwesomeIcons.store, 'number': 5, 'screen': InventoryScreen()},

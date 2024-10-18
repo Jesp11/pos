@@ -20,9 +20,9 @@ class TicketService {
       );
 
       await ticketBox.add(ticket.toMap());
-      return true; 
+      return true; // Registro exitoso
     } catch (e) {
-      return false; 
+      return false; // Registro fallido
     }
   }
 

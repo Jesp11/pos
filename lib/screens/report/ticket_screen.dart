@@ -1,6 +1,6 @@
-// screens/ticket_screen.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pos/components/cards/ticket_card.dart';
 import 'package:pos/models/ticket.dart';
 import 'package:pos/screens/report/ticket_detail_screen.dart';
 import 'package:pos/services/ticket_services.dart';
@@ -46,7 +46,7 @@ class _TicketScreenState extends State<TicketScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0.0),
+        padding: const EdgeInsets.all(16.0),
         child: tickets.isEmpty
             ? Center(
                 child: Text(
@@ -58,10 +58,9 @@ class _TicketScreenState extends State<TicketScreen> {
                 itemCount: tickets.length,
                 itemBuilder: (context, index) {
                   final ticket = tickets[index];
-                  return ListTile(
-                    title: Text('Ticket ID: ${ticket.ticketId}'),
-                    subtitle: Text('Fecha: ${ticket.date}\nTotal: \$${ticket.totalAmount}'),
-                    onTap: () => _viewTicketDetails(ticket), // Navegar a detalles del ticket
+                  return TicketCard(
+                    ticket: ticket,
+                    onTap: () => _viewTicketDetails(ticket), // Llamar a la función al tocar
                   );
                 },
               ),

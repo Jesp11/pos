@@ -1,5 +1,3 @@
-// lib/screens/ticket/ticket_card.dart
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/models/ticket.dart';
@@ -25,10 +23,10 @@ class TicketCard extends StatelessWidget {
           style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          'Fecha: ${ticket.date}\nTotal: \$${ticket.totalAmount}',
+          'Date: ${ticket.date}\nTotal: \$${ticket.totalAmount}',
           style: GoogleFonts.montserrat(),
         ),
-        onTap: () => onTap(), // Llamar a la función onTap cuando se toca
+        onTap: () => onTap(), 
       ),
     );
   }

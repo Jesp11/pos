@@ -38,7 +38,7 @@ class _EditCategoriesFormState extends State<EditCategoriesForm> {
         context: context,
         builder: (context) => AlertDialog(
           title: const Text('Error'),
-          content: const Text('No se pudo actualizar la categoría.'),
+          content: const Text('Could not update category.'),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),

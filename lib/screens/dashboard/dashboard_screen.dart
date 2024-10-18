@@ -19,7 +19,6 @@ class DashboardScreen extends StatelessWidget {
     {'title': 'Store', 'icon': FontAwesomeIcons.store, 'number': 5, 'screen': InventoryScreen()},
     {'title': 'Suppliers', 'icon': FontAwesomeIcons.truck, 'number': 6, 'screen': SupplierScreen()},
     {'title': 'Log Out', 'icon': FontAwesomeIcons.rightFromBracket, 'number': 7},
-    //{'title': 'Users', 'icon': FontAwesomeIcons.users, 'number': 8},
   ];
 
   @override

@@ -29,7 +29,7 @@ class _SupplierDropdownState extends State<SupplierDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<Supplier>(
-      hint: Text("Selecciona un proveedor"),
+      hint: Text("Select a supplier"),
       value: selectedSupplier,
       onChanged: (Supplier? newValue) {
         setState(() {

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pos/models/ticket.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TicketDetailScreen extends StatelessWidget {
+class TicketSalesScreen extends StatelessWidget {
   final Ticket ticket;
 
-  TicketDetailScreen({required this.ticket});
+  TicketSalesScreen({required this.ticket});
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +42,7 @@ class TicketDetailScreen extends StatelessWidget {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
+                      Navigator.pop(context);
                       Navigator.pop(context);
                     },
                     child: Text('Accept'),

@@ -21,7 +21,7 @@ class _TicketScreenState extends State<TicketScreen> {
   }
 
   Future<void> _loadTickets() async {
-    tickets = await ticketService.getTickets(); 
+    tickets = await ticketService.getTickets();
     setState(() {});
   }
 
@@ -29,7 +29,7 @@ class _TicketScreenState extends State<TicketScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => TicketDetailScreen(ticket: ticket), // Navegar a la pantalla de detalles
+        builder: (context) => TicketDetailScreen(ticket: ticket),
       ),
     );
   }
@@ -41,7 +41,7 @@ class _TicketScreenState extends State<TicketScreen> {
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         title: Text(
-          'Tickets de Venta',
+          'Sales Tickets',
           style: GoogleFonts.montserrat(fontSize: 24, fontWeight: FontWeight.w600),
         ),
       ),
@@ -50,7 +50,7 @@ class _TicketScreenState extends State<TicketScreen> {
         child: tickets.isEmpty
             ? Center(
                 child: Text(
-                  'No hay tickets de venta disponibles.',
+                  'No sales tickets available.',
                   style: GoogleFonts.montserrat(fontSize: 18),
                 ),
               )
@@ -60,7 +60,7 @@ class _TicketScreenState extends State<TicketScreen> {
                   final ticket = tickets[index];
                   return TicketCard(
                     ticket: ticket,
-                    onTap: () => _viewTicketDetails(ticket), // Llamar a la función al tocar
+                    onTap: () => _viewTicketDetails(ticket),
                   );
                 },
               ),

@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import '../models/category.dart';
-import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class CategoryService {
   final Box categoryBox;

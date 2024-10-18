@@ -25,9 +25,14 @@ void main() async {
   var supplierBox = await Hive.openBox('supplyBox');
   var ticketBox = await Hive.openBox('ticketBox');
   var productBox = await Hive.openBox('productBox');
-  
-    User defaultUser = User(username: 'poncess', password: 'admin123', role: 'Admin');
-    await userBox.put(defaultUser.username, defaultUser.toMap());
+  if(userBox.isEmpty){
+     User adminUser = User(username: 'admin', password: 'admin123', role: 'Admin'); //usuario administrador predeterrminado
+    await userBox.put(adminUser.username, adminUser.toMap());
+    User employeeUser = User(username: 'employee', password: 'emplo123', role: 'Employee'); //usuario employee predeterrminado
+    await userBox.put(employeeUser.username, employeeUser.toMap());
+    
+  }
+
   
   runApp(const MainApp());
 }

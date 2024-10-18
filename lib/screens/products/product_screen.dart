@@ -38,7 +38,7 @@ class _ProductScreenState extends State<ProductScreen> {
         return dialogAlert(
           context: context, 
           title: 'Delete product?', 
-          content: 'Are you sure you want to delete this category?', 
+          content: 'Are you sure you want to delete this product?', 
           confirmButtonText: 'Delete', 
           onConfirm: () { 
             productService.deleteProduct(product);
@@ -58,7 +58,7 @@ class _ProductScreenState extends State<ProductScreen> {
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         title: Text(
-          'Productos',
+          'Products',
           style: GoogleFonts.montserrat(fontSize: 24, fontWeight: FontWeight.w600),
         ),
         actions: [
@@ -77,7 +77,7 @@ class _ProductScreenState extends State<ProductScreen> {
         child: products.isEmpty
             ? Center(
                 child: Text(
-                  'No hay productos disponibles.',
+                  'No products available.',
                   style: GoogleFonts.montserrat(fontSize: 18),
                 ),
               )

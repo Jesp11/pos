@@ -1,4 +1,3 @@
-// services/ticket_service.dart
 import 'package:hive/hive.dart';
 import 'package:pos/models/ticket.dart';
 
@@ -20,9 +19,9 @@ class TicketService {
       );
 
       await ticketBox.add(ticket.toMap());
-      return true; // Registro exitoso
+      return true; 
     } catch (e) {
-      return false; // Registro fallido
+      return false; 
     }
   }
 

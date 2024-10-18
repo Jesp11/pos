@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pos/models/products.dart';
+import 'package:pos/models/ticket.dart';
+import 'package:pos/screens/sales/ticket_sale_screen.dart';
 import 'package:pos/services/ticket_services.dart';
 import 'package:pos/utils/generar_id.dart';
 
 class SaleDetailScreen extends StatelessWidget {
   final Map<Product, int> selectedProducts;
-  final TicketService ticketService = TicketService(); // Instancia del servicio de tickets
+  final TicketService ticketService = TicketService();
 
   SaleDetailScreen({required this.selectedProducts});
 
@@ -33,18 +35,26 @@ class SaleDetailScreen extends StatelessWidget {
       );
 
       if (success) {
+        Ticket newTicket = Ticket(ticketId: ticketId, date: date, totalAmount: totalAmount);
+
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Ticket generado y guardado en la caja de tickets.')),
+          SnackBar(content: Text('Ticket generated and saved in the ticket box.')),
         );
-        Navigator.pop(context); // Vuelve a la pantalla anterior
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TicketSalesScreen(ticket: newTicket),
+          ),
+        );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error al generar el ticket.')),
+          SnackBar(content: Text('Error generating the ticket.')),
         );
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No se puede generar un ticket sin productos.')),
+        SnackBar(content: Text('Cannot generate a ticket without products.')),
       );
     }
   }
@@ -60,7 +70,7 @@ class SaleDetailScreen extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         title: Text(
-          'Detalles de Venta',
+          'Sale Details',
           style: GoogleFonts.montserrat(fontSize: 24, fontWeight: FontWeight.w600),
         ),
       ),
@@ -69,7 +79,7 @@ class SaleDetailScreen extends StatelessWidget {
         child: filteredProducts.isEmpty
             ? Center(
                 child: Text(
-                  'No hay productos seleccionados.',
+                  'No products selected.',
                   style: GoogleFonts.montserrat(fontSize: 18),
                 ),
               )
@@ -97,7 +107,7 @@ class SaleDetailScreen extends StatelessWidget {
                                       style: GoogleFonts.montserrat(fontSize: 18),
                                     ),
                                     Text(
-                                      'Cantidad: $quantity',
+                                      'Quantity: $quantity',
                                       style: GoogleFonts.montserrat(fontSize: 14),
                                     ),
                                   ],
@@ -118,20 +128,18 @@ class SaleDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
                   SizedBox(
-                    width: double.infinity, // Hace que el botón ocupe todo el ancho
+                    width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () =>{ 
-                        _generateTicket(context)
-                      },
+                      onPressed: () => _generateTicket(context),
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
-                        backgroundColor: Colors.deepPurple, // Color del botón
+                        backgroundColor: Colors.deepPurple,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                       child: Text(
-                        'Total a Pagar: \$${_calculateTotalCost().toStringAsFixed(2)}',
+                        'Total to Pay: \$${_calculateTotalCost().toStringAsFixed(2)}',
                         style: GoogleFonts.montserrat(
                           fontSize: 20,
                           color: Colors.white,

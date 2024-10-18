@@ -1,7 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:pos/models/supplier.dart';
-import '../models/category.dart';
-import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class SupplierService {
   final Box supplierBox;
@@ -76,7 +74,7 @@ class SupplierService {
           .cast<Supplier?>()
           .firstWhere(
             (supplier) => supplier?.company.toLowerCase() == companyName.toLowerCase(),
-            orElse: () => null, // Retorna null si no encuentra el proveedor
+            orElse: () => null, 
           );
     } catch (e) {
       return null;

@@ -29,7 +29,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<Category>(
-      hint: Text("Selecciona una categoría"),
+      hint: Text("Select a category"),
       value: selectedCategory,
       onChanged: (Category? newValue) {
         setState(() {

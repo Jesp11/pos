@@ -49,7 +49,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Inventario'),
+        title: const Text('Inventory'),
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         actions: [
@@ -63,7 +63,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                 _createProduct();
               } else if (value == 'New Category') {
                 _createCategory();
-              }else if (value == 'New Supplier') {
+              } else if (value == 'New Supplier') {
                 _createSupplier();
               }
             },
@@ -91,7 +91,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
             TextField(
               controller: searchController,
               decoration: InputDecoration(
-                labelText: 'Buscar Producto',
+                labelText: 'Search Product',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
                   borderSide: const BorderSide(color: Colors.deepPurple),
@@ -108,10 +108,10 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   return Card(
                     child: ListTile(
                       title: Text(product.name),
-                      subtitle: Text('Cantidad disponible: ${product.availableQuantity}'),
+                      subtitle: Text('Available quantity: ${product.availableQuantity}'),
                       trailing: ElevatedButton(
                         onPressed: () => _addQuantityDialog(product),
-                        child: const Text('Aumentar Cantidad'),
+                        child: const Text('Increase Quantity'),
                       ),
                     ),
                   );
@@ -130,19 +130,19 @@ class _InventoryScreenState extends State<InventoryScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Aumentar Cantidad'),
+          title: const Text('Increase Quantity'),
           content: TextField(
             controller: quantityController,
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
-              labelText: 'Cantidad a agregar',
+              labelText: 'Quantity to add',
               border: OutlineInputBorder(),
             ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Cancelar'),
+              child: const Text('Cancel'),
             ),
             ElevatedButton(
               onPressed: () {
@@ -152,7 +152,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                 }
                 Navigator.pop(context);
               },
-              child: const Text('Añadir'),
+              child: const Text('Add'),
             ),
           ],
         );

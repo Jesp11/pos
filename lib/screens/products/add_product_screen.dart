@@ -11,7 +11,7 @@ class AddProductsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
-        title: Text('Agregar Producto', style: GoogleFonts.montserrat()),
+        title: Text('Add Product', style: GoogleFonts.montserrat()),
       ),
       body: Center(
         child: Column(
@@ -20,7 +20,7 @@ class AddProductsScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 40),
             Text(
-              'Nuevo Producto',
+              'New Product',
               style: GoogleFonts.montserrat(fontSize: 35, fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 40),

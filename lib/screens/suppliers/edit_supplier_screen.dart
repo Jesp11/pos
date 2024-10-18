@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pos/components/forms/supplier/add_supplier_form.dart';
 import 'package:pos/components/forms/supplier/edit_supplier_form.dart';
 import 'package:pos/models/supplier.dart';
 

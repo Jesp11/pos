@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:pos/models/products.dart';
-import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class ProductService {
   final Box productBox;
@@ -15,7 +14,6 @@ class ProductService {
     required int quantity,
   }) async {
     try {
-      // Crea una nueva instancia de Product
       final product = Product(
         name: name,
         category: category,
@@ -24,12 +22,10 @@ class ProductService {
         quantity: quantity,
       );
 
-      // Agrega el producto al box
       await productBox.add(product.toMap());
-      return true; // Registro exitoso
+      return true; 
     } catch (e) {
-      // Manejo de errores
-      return false; // Registro fallido
+      return false; 
     }
   }
 

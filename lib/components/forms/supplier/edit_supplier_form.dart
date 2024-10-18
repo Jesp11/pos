@@ -6,7 +6,7 @@ import 'package:pos/services/supplier_service.dart';
 import 'package:pos/utils/alerts/dialog_alert.dart';
 
 class EditSupplierForm extends StatefulWidget {
-  final Supplier supplier; // Cambié 'Category' por 'Supplier'
+  final Supplier supplier; // Changed 'Category' to 'Supplier'
   const EditSupplierForm({Key? key, required this.supplier}) : super(key: key);
 
   @override
@@ -38,7 +38,7 @@ class _EditSupplierFormState extends State<EditSupplierForm> {
         context: context,
         builder: (context) => AlertDialog(
           title: const Text('Error'),
-          content: const Text('No se pudo actualizar el proveedor.'),
+          content: const Text('Could not update the supplier.'),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),

@@ -32,9 +32,9 @@ class _AddProductsForm extends State<AddProductForm> {
   }
 
   Future<void> _loadCategoriesAndSuppliers() async {
-    categories = await categoryService.getCategoryNames(); // Obtén nombres de categorías
-    suppliers = supplierService.getSupplier().map((e) => e.company).toList(); // Obtén nombres de proveedores
-    setState(() {}); // Actualiza la UI cuando se carguen los datos
+    categories = await categoryService.getCategoryNames(); 
+    suppliers = supplierService.getSupplier().map((e) => e.company).toList(); 
+    setState(() {}); 
   }
 
   @override
@@ -49,7 +49,7 @@ class _AddProductsForm extends State<AddProductForm> {
             TextFormField(
               controller: nameController,
               decoration: InputDecoration(
-                labelText: 'Nombre del Producto',
+                labelText: 'Product Name',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
                   borderSide: const BorderSide(color: Colors.deepPurple),
@@ -57,7 +57,7 @@ class _AddProductsForm extends State<AddProductForm> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Por favor ingresa el nombre del producto';
+                  return 'Please enter the product name';
                 }
                 return null;
               },
@@ -85,7 +85,7 @@ class _AddProductsForm extends State<AddProductForm> {
               },
               validator: (value) {
                 if (value == null) {
-                  return 'Por favor selecciona una categoría';
+                  return 'Please enter the category';
                 }
                 return null;
               },
@@ -100,7 +100,7 @@ class _AddProductsForm extends State<AddProductForm> {
                       ))
                   .toList(),
               decoration: InputDecoration(
-                labelText: 'Proveedor',
+                labelText: 'Supplier',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
                   borderSide: const BorderSide(color: Colors.deepPurple),
@@ -113,7 +113,7 @@ class _AddProductsForm extends State<AddProductForm> {
               },
               validator: (value) {
                 if (value == null) {
-                  return 'Por favor selecciona un proveedor';
+                  return 'Please enter the supplier';
                 }
                 return null;
               },
@@ -123,7 +123,7 @@ class _AddProductsForm extends State<AddProductForm> {
               controller: priceController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'Precio',
+                labelText: 'Price',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
                   borderSide: const BorderSide(color: Colors.deepPurple),
@@ -131,10 +131,10 @@ class _AddProductsForm extends State<AddProductForm> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Por favor ingresa el precio';
+                  return 'Please enter the price';
                 }
                 if (int.tryParse(value) == null) {
-                  return 'Por favor ingresa un número válido';
+                  return 'Please enter value number';
                 }
                 return null;
               },
@@ -144,7 +144,7 @@ class _AddProductsForm extends State<AddProductForm> {
               controller: quantityController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'Cantidad',
+                labelText: 'Quiantity',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
                   borderSide: const BorderSide(color: Colors.deepPurple),
@@ -152,10 +152,10 @@ class _AddProductsForm extends State<AddProductForm> {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Por favor ingresa la cantidad';
+                  return 'Please enter the product quantity';
                 }
                 if (int.tryParse(value) == null) {
-                  return 'Por favor ingresa un número válido';
+                  return 'Please enter the product quantity';
                 }
                 return null;
               },
@@ -184,8 +184,8 @@ class _AddProductsForm extends State<AddProductForm> {
                       builder: (BuildContext context) {
                         return dialogAlert(
                           context: context, 
-                          title: 'Éxito', 
-                          content: 'El producto se ha agregado correctamente', 
+                          title: 'Success', 
+                          content: 'The product has been added successfully', 
                           confirmButtonText: 'Ok', 
                           onConfirm: () { 
                              Navigator.pop(context);
@@ -201,7 +201,7 @@ class _AddProductsForm extends State<AddProductForm> {
                         return dialogAlert(
                           context: context, 
                           title: 'Error', 
-                          content: 'Falló la creación del producto', 
+                          content: 'Product creation failed', 
                           confirmButtonText: 'Ok', 
                           onConfirm: () { 
                              Navigator.pop(context);

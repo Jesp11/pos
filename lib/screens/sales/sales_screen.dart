@@ -12,7 +12,7 @@ class SalesScreen extends StatefulWidget {
 class _SalesScreenState extends State<SalesScreen> {
   final ProductService productService = ProductService();
   List<Product> products = [];
-  Map<Product, int> selectedProducts = {}; // Para almacenar la cantidad seleccionada
+  Map<Product, int> selectedProducts = {}; 
 
   @override
   void initState() {
@@ -35,20 +35,19 @@ class _SalesScreenState extends State<SalesScreen> {
     setState(() {
       if ((selectedProducts[product] ?? 0) > 0) {
         selectedProducts[product] = selectedProducts[product]! - 1;
+        if (selectedProducts[product] == 0) {
+          selectedProducts.remove(product);
+        }
       }
     });
   }
 
   double _getTotalAmount() {
-    double total = 0.0;
-    selectedProducts.forEach((product, quantity) {
-      total += product.price * quantity; // Sumar el precio de cada producto por la cantidad
-    });
-    return total;
+    return selectedProducts.entries.fold(0.0, (total, entry) => total + entry.key.price * entry.value);
   }
 
   void _goToDetailScreen() {
-    if (_getTotalAmount() > 0) { // Solo navega si hay productos seleccionados
+    if (_getTotalAmount() > 0) {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -56,9 +55,8 @@ class _SalesScreenState extends State<SalesScreen> {
         ),
       );
     } else {
-      // Mostrar un mensaje si no hay productos seleccionados
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Por favor, selecciona al menos un producto.')),
+        SnackBar(content: Text('Please select at least one product.')),
       );
     }
   }
@@ -70,19 +68,14 @@ class _SalesScreenState extends State<SalesScreen> {
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         title: Text(
-          'Ventas',
+          'Sales',
           style: GoogleFonts.montserrat(fontSize: 24, fontWeight: FontWeight.w600),
         ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: products.isEmpty
-            ? Center(
-                child: Text(
-                  'No hay productos disponibles.',
-                  style: GoogleFonts.montserrat(fontSize: 18),
-                ),
-              )
+            ? Center(child: Text('No products available.', style: GoogleFonts.montserrat(fontSize: 18)))
             : ListView.builder(
                 itemCount: products.length,
                 itemBuilder: (context, index) {
@@ -103,7 +96,7 @@ class _SalesScreenState extends State<SalesScreen> {
                                 style: GoogleFonts.montserrat(fontSize: 18),
                               ),
                               Text(
-                                'Precio: \$${product.price.toStringAsFixed(2)}',
+                                'Price: \$${product.price.toStringAsFixed(2)}',
                                 style: GoogleFonts.montserrat(fontSize: 14),
                               ),
                             ],
@@ -138,21 +131,21 @@ class _SalesScreenState extends State<SalesScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Costo Total: ${_getTotalAmount().toStringAsFixed(2)}',
+              'Total Cost: ${_getTotalAmount().toStringAsFixed(2)}',
               style: GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16), // Espacio entre el costo total y el botón
+            SizedBox(height: 16),
             SizedBox(
-              width: double.infinity, // Hacer el botón más ancho
+              width: double.infinity,
               child: ElevatedButton(
                 onPressed: _goToDetailScreen,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurple, // Color de fondo del botón
-                  padding: EdgeInsets.symmetric(vertical: 16), // Aumentar el padding vertical
+                  backgroundColor: Colors.deepPurple,
+                  padding: EdgeInsets.symmetric(vertical: 16),
                 ),
                 child: Text(
-                  'Proceder', // Solo texto "Proceder" en el botón
-                  style: TextStyle(fontSize: 20, color: Colors.white), // Tamaño de fuente
+                  'Proceed',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
               ),
             ),
